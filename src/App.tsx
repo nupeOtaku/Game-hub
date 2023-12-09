@@ -10,11 +10,10 @@ const App = () => {
         lg: `"nav nav" "aside main"`,
       }}
     >
-      {' '}
       <GridItem area="nav">
         <NavBar />
       </GridItem>
-      <Show above="lg">
+      <Show above="md">
         <GridItem area="aside">
           <GameGrid />
         </GridItem>
