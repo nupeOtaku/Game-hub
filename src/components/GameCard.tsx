@@ -13,12 +13,7 @@ const GameCard = ({ game }: Props) => {
   console.log(getCropImageUrl(background_image));
 
   return (
-    <Card
-      width={'300px'}
-      borderRadius={10}
-      overflow={'hidden'}
-      boxShadow={'lg'}
-    >
+    <Card>
       <Image src={getCropImageUrl(background_image)} />
       <CardBody>
         <Heading fontSize={'2xl'}>{name}</Heading>
