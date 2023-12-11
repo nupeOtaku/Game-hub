@@ -18,7 +18,7 @@ const GameGrid = () => {
         spacing={10}
         padding="10px"
       >
-        {/* {isLoading && <div>Loading...</div>} */}
+        {isLoading && <div>Loading...</div>}
         {games && (
           <>
             {games.map((game) => (
