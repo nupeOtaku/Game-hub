@@ -15,10 +15,12 @@ const App = () => {
       </GridItem>
       <Show above="md">
         <GridItem area="aside">
-          <GameGrid />
+          <p>Aside</p>
         </GridItem>
       </Show>
-      <GridItem area="main">Main</GridItem>
+      <GridItem area="main">
+        <GameGrid />
+      </GridItem>
     </Grid>
   );
 };
