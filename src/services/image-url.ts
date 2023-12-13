@@ -1,4 +1,8 @@
 export const getCropImageUrl = (url: string) => {
+  if (!url) {
+    return '';
+  }
+
   // Define the target string to identify the portion of the URL before the cropping parameters
   const target = 'media/';
 
