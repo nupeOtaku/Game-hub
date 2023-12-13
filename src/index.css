@@ -7,3 +7,7 @@
     transition: .5s margin-left;
 
 }
+
+form {
+    width: 100%;
+}
