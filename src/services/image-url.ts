@@ -1,6 +1,8 @@
+import noImage from '../assets/no-image-placeholder.webp';
+
 export const getCropImageUrl = (url: string) => {
   if (!url) {
-    return '';
+    return noImage;
   }
 
   // Define the target string to identify the portion of the URL before the cropping parameters
