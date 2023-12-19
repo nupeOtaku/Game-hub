@@ -31,7 +31,7 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
         Genres
       </Heading>
       <List>
-        {data?.results.map((gen) => (
+        {data?.results.map((gen: Genre) => (
           <ListItem
             key={gen.id}
             paddingY={'5px'}
