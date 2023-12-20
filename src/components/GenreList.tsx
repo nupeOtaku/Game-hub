@@ -12,10 +12,10 @@ import { getCropImageUrl } from '../services/image-url';
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
-  selectedGenre: Genre | null;
+  selectedGenreId?: number;
 }
 
-const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
+const GenreList = ({ onSelectGenre, selectedGenreId }: Props) => {
   const { data, isLoading, error } = useGenre();
 
   if (isLoading) return <Spinner />;
@@ -35,7 +35,7 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
           <ListItem
             key={gen.id}
             paddingY={'5px'}
-            className={gen.id === selectedGenre?.id ? 'active' : ''}
+            className={gen.id === selectedGenreId ? 'active' : ''}
           >
             <HStack>
               <Image
@@ -47,7 +47,7 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
               <Button
                 whiteSpace={'normal'}
                 textAlign={'left'}
-                fontWeight={gen.id === selectedGenre?.id ? 'bold' : 'normal'}
+                fontWeight={gen.id === selectedGenreId ? 'bold' : 'normal'}
                 onClick={() => handleGenre(gen)}
                 variant={'link'}
                 fontSize={'lg'}
