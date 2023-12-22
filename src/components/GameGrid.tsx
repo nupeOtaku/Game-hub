@@ -3,15 +3,13 @@ import useGames from '../hooks/useGames';
 import GameCard from './GameCard';
 import GameCardSkeleton from './GameCardSkeleton';
 import GameCardContainer from './GameCardContainer';
-import { GameQuery } from '../App';
-import React from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import useGamesQueryStore from '../store';
+import { Fragment } from 'react';
 
-interface Props {
-  gameQuery: GameQuery;
-}
+const GameGrid = () => {
+  const gameQuery = useGamesQueryStore((s) => s.gameQuery);
 
-const GameGrid = ({ gameQuery }: Props) => {
   const {
     data: games,
     error,
@@ -49,13 +47,13 @@ const GameGrid = ({ gameQuery }: Props) => {
           ))}
 
         {games?.pages.map((page, index) => (
-          <React.Fragment key={index}>
+          <Fragment key={index}>
             {page.results.map((game) => (
               <GameCardContainer key={game.id}>
                 <GameCard game={game} />
               </GameCardContainer>
             ))}
-          </React.Fragment>
+          </Fragment>
         ))}
       </SimpleGrid>
     </InfiniteScroll>
