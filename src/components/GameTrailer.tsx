@@ -5,7 +5,7 @@ interface Props {
   gameId?: number;
 }
 
-const GameTrailer = ({ gameId }: Props) => {
+const GameTrailer = ({ gameId = 0 }: Props) => {
   const { data, isLoading } = useTrailers(gameId);
 
   const first = data?.results[0];
