@@ -6,7 +6,7 @@ import { Game } from '../entities/Game';
 const apiClient = new APIClient<Game>(`/games`);
 
 const useGame = (slug: string) =>
-  useQuery({
+  useQuery<Game>({
     queryKey: ['game', slug],
     queryFn: () => apiClient.get(slug),
     staleTime: ms('24h'),

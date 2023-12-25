@@ -1,10 +1,8 @@
 import { Button, Text } from '@chakra-ui/react';
-import { useState } from 'react';
-import { BsArrowBarRight } from 'react-icons/bs';
-import { FaArrowRight } from 'react-icons/fa';
+import { ReactNode, useState } from 'react';
 
 interface Props {
-  children: string;
+  children: ReactNode;
 }
 
 const ExpandableText = ({ children }: Props) => {
@@ -13,11 +11,13 @@ const ExpandableText = ({ children }: Props) => {
 
   if (!children) return null;
 
-  if (children.length <= limit) {
+  if (typeof children === 'string' && children.length <= limit) {
     return <Text> {children}</Text>;
   }
 
-  const summary = expand ? children : children.substring(0, limit) + '...';
+  const summary = expand
+    ? children
+    : (children as string).substring(0, limit) + '...';
   return (
     <Text>
       {summary}
